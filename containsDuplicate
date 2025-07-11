@@ -1,3 +1,5 @@
+//This is the code which checks for duplicates and returns true if it finds one.
+
 class Solution {
     public boolean containsDuplicate(int[] nums) {
 
