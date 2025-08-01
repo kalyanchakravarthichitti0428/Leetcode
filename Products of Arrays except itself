@@ -1,0 +1,29 @@
+class Solution {
+    public int[] productExceptSelf(int[] nums) {
+
+        int prefix = 1, postfix = 1;
+        int result[] = new int[nums.length];
+
+        //Lets fill the resultant array with all one's.
+        Arrays.fill(result,1);
+
+        /*Run a for loop which calculates the 
+        product of all the values before a particlar array element */
+        for(int i=0;i<nums.length;i++){
+            result[i] = prefix; 
+            prefix = prefix * nums[i];
+        }
+
+        //Now claculate the postfix in the same order from the right side of array
+        for(int i=nums.length-1;i>=0;i--){
+            result[i] = result[i] * postfix;
+            postfix = postfix * nums[i];
+        }
+
+        return result;
+        
+    }
+}  
+
+Time Complexity: O(2n) -- which is O(n)
+Space Complexity: O(1)
